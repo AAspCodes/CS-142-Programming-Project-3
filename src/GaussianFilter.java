@@ -12,8 +12,8 @@ public class GaussianFilter implements Filter {
 	
 	public void filter(PixelImage pi) {
 		Pixel[][] data = pi.getData();
-		pi.computeFilter(data, weights, scaleFactor);
-		pi.setData(data);
+		Pixel[][] newData = pi.computeFilter(data, weights, scaleFactor);
+		pi.setData(newData);
 	}
 
 }
