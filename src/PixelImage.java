@@ -97,6 +97,23 @@ public class PixelImage {
 	}
 
 	// add a method to compute a new image given weighted averages
+	public static void computePixel(Pixel[][] data, int row, int col, int[][] weights, int scaleFactor, int color) {
+		
+		int newValue = 0;
+		for (int i = 0; i < weights.length; i++) {
+			for (int j = 0;j < weights[0].length ; j++) {
+				int weight = weights[i][j];
+				int value = getColor(data[row - 1 + i][col - 1 + j], color);
+				newValue += value * weight;
+			}
+		}
+		
+		newValue /= scaleFactor;
+
+		setColor(data[row][col], color, newValue);
+		
+	}
+	
 	public static int getColor(Pixel pixel, int color) {
 		switch (color) {
 		case 0:
