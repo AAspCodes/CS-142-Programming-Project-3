@@ -105,11 +105,11 @@ public class PixelImage {
 		for (int row = 1; row < data.length - 1; row++) {
 			for (int col = 1 ; col < data[0].length - 1; col++) {
 				// red
-				computePixel(data, row, col, weights, scaleFactor, 0);
+				computePixel(data, newData, row, col, weights, scaleFactor, 0);
 				// green
-				computePixel(data, row, col, weights, scaleFactor, 1);
+				computePixel(data, newData, row, col, weights, scaleFactor, 1);
 				// blue
-				computePixel(data, row, col, weights, scaleFactor, 2);
+				computePixel(data, newData, row, col, weights, scaleFactor, 2);
 			}
 		}
 		
