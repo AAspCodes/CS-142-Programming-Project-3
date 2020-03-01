@@ -11,8 +11,7 @@ public class PixelImage {
 	/**
 	 * Map this PixelImage to a real image
 	 * 
-	 * @param bi
-	 *            The image
+	 * @param bi The image
 	 */
 	public PixelImage(BufferedImage bi) {
 		// initialise instance variables
@@ -43,9 +42,9 @@ public class PixelImage {
 	}
 
 	/**
-	 * Return the image's pixel data as an array of Pixels. The first coordinate
-	 * is the x-coordinate, so the size of the array is [width][height], where
-	 * width and height are the dimensions of the array
+	 * Return the image's pixel data as an array of Pixels. The first coordinate is
+	 * the x-coordinate, so the size of the array is [width][height], where width
+	 * and height are the dimensions of the array
 	 * 
 	 * @return The array of pixels
 	 */
@@ -53,7 +52,6 @@ public class PixelImage {
 		Raster r = this.myImage.getRaster();
 		Pixel[][] data = new Pixel[r.getHeight()][r.getWidth()];
 		int[] samples = new int[3];
-		
 
 		for (int row = 0; row < r.getHeight(); row++) {
 			for (int col = 0; col < r.getWidth(); col++) {
@@ -67,13 +65,11 @@ public class PixelImage {
 	}
 
 	/**
-	 * Set the image's pixel data from an array. This array matches that
-	 * returned by getData(). It is an error to pass in an array that does not
-	 * match the image's dimensions or that has pixels with invalid values (not
-	 * 0-255)
+	 * Set the image's pixel data from an array. This array matches that returned by
+	 * getData(). It is an error to pass in an array that does not match the image's
+	 * dimensions or that has pixels with invalid values (not 0-255)
 	 * 
-	 * @param data
-	 *            The array to pull from
+	 * @param data The array to pull from
 	 */
 	public void setData(Pixel[][] data) {
 		int[] pixelValues = new int[3]; // a temporary array to hold r,g,b
@@ -97,8 +93,7 @@ public class PixelImage {
 	}
 
 	// add a method to compute a new image given weighted averages
-	public void computeFilter(Pixel[][] data, int[][] weights, int scaleFactor) {
-		
+	public Pixel[][] computeFilter(Pixel[][] data, int[][] weights, int scaleFactor) {
 		for (int row = 1; row < data.length - 1; row++) {
 			for (int col = 1 ; col < data[0].length - 1; col++) {
 				// red
@@ -128,7 +123,7 @@ public class PixelImage {
 		setColor(data[row][col], color, newValue);
 		
 	}
-	
+
 	public static int getColor(Pixel pixel, int color) {
 		switch (color) {
 		case 0:
@@ -142,16 +137,15 @@ public class PixelImage {
 			return 0;
 		}
 	}
-	
-	
+
 	public static void setColor(Pixel pixel, int color, int newValue) {
-		
+
 		if (newValue > 255) {
 			newValue = 255;
-		} else if (newValue < 0){
+		} else if (newValue < 0) {
 			newValue = 0;
 		}
-		
+
 		switch (color) {
 		case 0:
 			pixel.red = newValue;
@@ -165,29 +159,7 @@ public class PixelImage {
 		default:
 			// TODO throw error!!
 		}
-		
+
 	}
-	
-	
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
