@@ -114,9 +114,10 @@ public class PixelImage {
 		}
 		
 	}
-	
-	public static void computePixel(Pixel[][] data, int row, int col, int[][] weights, int scaleFactor, int color) {
-		
+
+	public static void computePixel(Pixel[][] data, Pixel[][] newData, int row, int col, int[][] weights,
+			int scaleFactor, int color) {
+
 		int newValue = 0;
 		for (int i = 0; i < weights.length; i++) {
 			for (int j = 0;j < weights[0].length ; j++) {
@@ -128,8 +129,8 @@ public class PixelImage {
 		
 		newValue /= scaleFactor;
 
-		setColor(data[row][col], color, newValue);
-		
+		setColor(newData[row][col], color, newValue);
+
 	}
 
 	public static int getColor(Pixel pixel, int color) {
