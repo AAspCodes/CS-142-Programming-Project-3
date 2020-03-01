@@ -138,7 +138,7 @@ public class PixelImage {
 		case 2:
 			return pixel.blue;
 		default:
-			assert(1==1);
+			// TODO Fail loudly, or not at all...??
 			return 0;
 		}
 	}
