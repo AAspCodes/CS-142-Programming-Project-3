@@ -103,7 +103,7 @@ public class PixelImage {
 		}
 
 		for (int row = 1; row < data.length - 1; row++) {
-			for (int col = 1 ; col < data[0].length - 1; col++) {
+			for (int col = 1; col < data[0].length - 1; col++) {
 				// red
 				computePixel(data, newData, row, col, weights, scaleFactor, 0);
 				// green
