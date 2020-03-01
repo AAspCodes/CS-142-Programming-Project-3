@@ -112,7 +112,8 @@ public class PixelImage {
 				computePixel(data, newData, row, col, weights, scaleFactor, 2);
 			}
 		}
-		
+		return newData;
+
 	}
 
 	public static void computePixel(Pixel[][] data, Pixel[][] newData, int row, int col, int[][] weights,
