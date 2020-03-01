@@ -106,7 +106,7 @@ public class PixelImage {
 				// green
 				computePixel(data, row, col, weights, scaleFactor, 1);
 				// blue
-				computePixel(data, row, col, weights, scaleFactor, 3);
+				computePixel(data, row, col, weights, scaleFactor, 2);
 			}
 		}
 		
