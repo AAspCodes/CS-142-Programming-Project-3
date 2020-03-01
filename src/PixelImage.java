@@ -120,13 +120,14 @@ public class PixelImage {
 
 		int newValue = 0;
 		for (int i = 0; i < weights.length; i++) {
-			for (int j = 0;j < weights[0].length ; j++) {
+			for (int j = 0; j < weights[0].length; j++) {
 				int weight = weights[i][j];
 				int value = getColor(data[row - 1 + i][col - 1 + j], color);
+
 				newValue += value * weight;
 			}
 		}
-		
+
 		newValue /= scaleFactor;
 
 		setColor(newData[row][col], color, newValue);
