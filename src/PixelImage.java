@@ -97,6 +97,21 @@ public class PixelImage {
 	}
 
 	// add a method to compute a new image given weighted averages
+	public static int getColor(Pixel pixel, int color) {
+		switch (color) {
+		case 0:
+			return pixel.red;
+		case 1:
+			return pixel.green;
+		case 2:
+			return pixel.blue;
+		default:
+			assert(1==1);
+			return 0;
+		}
+	}
+	
+	
 	public static void setColor(Pixel pixel, int color, int newValue) {
 		
 		if (newValue > 255) {
