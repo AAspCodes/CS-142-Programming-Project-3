@@ -1,4 +1,8 @@
-
+/**
+ * 
+ * @author Anthony Asp, Emily
+ *
+ */
 public class GaussianFilter implements Filter {
 	int[][] weights = {{1,2,1},
 					   {2,4,2},
