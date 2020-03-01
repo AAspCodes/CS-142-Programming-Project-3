@@ -20,6 +20,7 @@ public class SnapShopConfiguration {
 		theShop.addFilter(new FlipHorizontalFilter(), "Flip Horizontal");
 		theShop.addFilter(new FlipVerticalFilter(), "Flip Vertical");
 		theShop.addFilter(new PhotoNegativeFilter(), "Photo Negative");
+		theShop.addFilter(new GaussianFilter(), "Gaussian Filter");
 		// add your other filters below
 	}
 }
