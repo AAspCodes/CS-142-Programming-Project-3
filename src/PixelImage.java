@@ -94,6 +94,14 @@ public class PixelImage {
 
 	// add a method to compute a new image given weighted averages
 	public Pixel[][] computeFilter(Pixel[][] data, int[][] weights, int scaleFactor) {
+		Pixel[][] newData = new Pixel[data.length][data[0].length];
+
+		for (int i = 0; i < newData.length; i++) {
+			for (int j = 0; j < newData[0].length; j++) {
+				newData[i][j] = new Pixel(0, 0, 0);
+			}
+		}
+
 		for (int row = 1; row < data.length - 1; row++) {
 			for (int col = 1 ; col < data[0].length - 1; col++) {
 				// red
