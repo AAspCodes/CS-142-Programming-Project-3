@@ -1,6 +1,6 @@
 /**
  * 
- * @author Anthony Asp, Emily
+ * @author Anthony Asp, Emily Lott
  *
  */
 public class GaussianFilter implements Filter {

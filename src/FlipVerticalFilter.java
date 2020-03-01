@@ -1,6 +1,6 @@
 /**
  * 
- * @author Anthony Asp
+ * @author Anthony Asp, Emily Lott
  * 
  * Filter that flips the image vertically.
  *

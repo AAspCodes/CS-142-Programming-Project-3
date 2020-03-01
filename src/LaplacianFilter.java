@@ -1,6 +1,6 @@
 /**
  * 
- * @author Anthony Asp, Emily
+ * @author Anthony Asp, Emily Lott
  * 
  * Filter that converts image using Laplacian filter technique.
  *

@@ -3,8 +3,8 @@
 /**
  * A class to configure the SnapShop application
  * 
- * @author (your name)
- * @version (a version number or a date)
+ * @author Anthony Asp, Emily Lott
+ * @version March 3, 2020
  */
 public class SnapShopConfiguration {
 	/**
