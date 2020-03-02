@@ -95,7 +95,9 @@ public class PixelImage {
 	// add a method to compute a new image given weighted averages
 	public Pixel[][] computeFilter(Pixel[][] data, int[][] weights, int scaleFactor) {
 		Pixel[][] newData = new Pixel[data.length][data[0].length];
-		// TODO fix edge creep bug!!
+		// TODO add computed weight offset to improve flexibility
+		
+		// TODO improve efficiency
 		for (int i = 0; i < newData.length; i++) {
 			for (int j = 0; j < newData[0].length; j++) {
 				newData[i][j] = data[i][j].clone();
