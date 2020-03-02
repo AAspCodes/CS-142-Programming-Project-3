@@ -98,7 +98,7 @@ public class PixelImage {
 		// TODO fix edge creep bug!!
 		for (int i = 0; i < newData.length; i++) {
 			for (int j = 0; j < newData[0].length; j++) {
-				newData[i][j] = new Pixel(0, 0, 0);
+				newData[i][j] = data[i][j].clone();
 			}
 		}
 
