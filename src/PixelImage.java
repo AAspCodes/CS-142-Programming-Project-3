@@ -122,7 +122,8 @@ public class PixelImage {
 		return newData;
 
 	}
-
+		// TODO improve efficancy by only storeing the previous 3 pixels on the top row, 
+		// may be able to avoid createing new image... 
 	public static void computePixel(Pixel[][] data, Pixel[][] newData, int row, int col, int[][] weights,
 			int scaleFactor, int color) {
 
