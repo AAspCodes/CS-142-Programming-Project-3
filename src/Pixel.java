@@ -16,8 +16,4 @@ public class Pixel {
 		this.green = green;
 		this.blue = blue;
 	}
-	
-	public Pixel clone() {
-		return new Pixel(this.red, this.green, this.red);
-	}
 }

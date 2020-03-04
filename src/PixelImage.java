@@ -91,7 +91,12 @@ public class PixelImage {
 			}
 		}
 	}
-
+	
+	
+	public Pixel clone(Pixel pixel) {
+		return new Pixel(pixel.red, pixel.green, pixel.blue);
+	}
+	
 	// add a method to compute a new image given weighted averages
 	public Pixel[][] computeFilter(Pixel[][] data, int[][] weights, int scaleFactor) {
 		Pixel[][] newData = new Pixel[data.length][data[0].length];
@@ -100,7 +105,7 @@ public class PixelImage {
 		// TODO improve efficiency
 		for (int i = 0; i < newData.length; i++) {
 			for (int j = 0; j < newData[0].length; j++) {
-				newData[i][j] = data[i][j].clone();
+				newData[i][j] = clone(data[i][j]);
 			}
 		}
 
