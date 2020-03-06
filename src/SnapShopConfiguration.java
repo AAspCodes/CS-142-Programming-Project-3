@@ -24,6 +24,7 @@ public class SnapShopConfiguration {
 		theShop.addFilter(new LaplacianFilter(), "Laplacian Filter");
 		theShop.addFilter(new UnsharpMaskingFilter(), "Unsharp Masking Filter");
 		theShop.addFilter(new EdgyFilter(), "Edgy Filter");
+		theShop.addFilter(new Mean3x3Filter(), "Mean 3x3 Filter");
 		theShop.addFilter(new Gauss5x5Filter(), "Gauss 5x5 Filter");
 		theShop.addFilter(new Laplacian5x5Filter(), "Laplacian 5x5 Filter");
 		theShop.addFilter(new Median3x3Filter(), "Median 3x3 Filter");
