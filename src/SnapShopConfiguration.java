@@ -26,6 +26,9 @@ public class SnapShopConfiguration {
 		theShop.addFilter(new EdgyFilter(), "Edgy Filter");
 		theShop.addFilter(new Gauss5x5Filter(), "Gauss 5x5 Filter");
 		theShop.addFilter(new Laplacian5x5Filter(), "Laplacian 5x5 Filter");
+		theShop.addFilter(new Median3x3Filter(), "Median 3x3 Filter");
+		theShop.addFilter(new Median5x5Filter(), "Median 5x5 Filter");
+		theShop.addFilter(new Median7x7Filter(), "Median 7x7 Filter");
 		
 		// add your other filters below
 	}
