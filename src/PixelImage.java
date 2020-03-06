@@ -100,6 +100,12 @@ public class PixelImage {
 	// add a method to compute a new image given weighted averages
 	public Pixel[][] computeFilter(Pixel[][] data, int[][] weights, int scaleFactor) {
 		Pixel[][] newData = new Pixel[data.length][data[0].length];
+		
+		Pixel[][] data = this.getData();
+		
+		Pixel[][] newData = copyImageData(data);
+		
+		
 		// TODO add computed weight offset to improve flexibility
 		
 		// TODO improve efficiency
@@ -126,6 +132,19 @@ public class PixelImage {
 		// may be able to avoid createing new image... 
 	public static void computePixel(Pixel[][] data, Pixel[][] newData, int row, int col, int[][] weights,
 			int scaleFactor, int color) {
+	
+	private Pixel[][] copyImageData(Pixel[][] data){
+		 Pixel[][] newData = new Pixel[this.getHeight()][this.getWidth()];
+			
+			// create copy of original image data
+			for (int i = 0; i < this.getHeight(); i++) {
+				for (int j = 0; j < this.getWidth(); j++) {
+					newData[i][j] = clone(data[i][j]);
+				}
+			}
+			
+		return newData;
+	}
 
 		int newValue = 0;
 		for (int i = 0; i < weights.length; i++) {
