@@ -111,8 +111,8 @@ public class PixelImage {
 		int weightsOffset = weights.length/2;
 
 		// compute each color
-		for (int row = 1; row < this.getHeight() - weightsOffset; row++) {
-			for (int col = 1; col < this.getWidth() - weightsOffset; col++) {
+		for (int row = weightsOffset; row < this.getHeight() - weightsOffset; row++) {
+			for (int col = weightsOffset; col < this.getWidth() - weightsOffset; col++) {
 				// red
 				computePixel(data, newData, row, col, weights, scaleFactor, 0, weightsOffset);
 				// green
