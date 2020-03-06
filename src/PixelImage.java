@@ -108,25 +108,23 @@ public class PixelImage {
 		
 		// TODO add computed weight offset to improve flexibility
 		
+		int weightsOffset = weights.length/2;
 
-		for (int row = 1; row < data.length - 1; row++) {
-			for (int col = 1; col < data[0].length - 1; col++) {
+		// compute each color
+		for (int row = 1; row < this.getHeight() - weightsOffset; row++) {
+			for (int col = 1; col < this.getWidth() - weightsOffset; col++) {
 				// red
-				computePixel(data, newData, row, col, weights, scaleFactor, 0);
+				computePixel(data, newData, row, col, weights, scaleFactor, 0, weightsOffset);
 				// green
-				computePixel(data, newData, row, col, weights, scaleFactor, 1);
+				computePixel(data, newData, row, col, weights, scaleFactor, 1, weightsOffset);
 				// blue
-				computePixel(data, newData, row, col, weights, scaleFactor, 2);
+				computePixel(data, newData, row, col, weights, scaleFactor, 2, weightsOffset);
 			}
 		}
 		
 		this.setData(newData);
 
 	}
-		// TODO improve efficancy by only storeing the previous 3 pixels on the top row, 
-		// may be able to avoid createing new image... 
-	public static void computePixel(Pixel[][] data, Pixel[][] newData, int row, int col, int[][] weights,
-			int scaleFactor, int color) {
 	
 	private Pixel[][] copyImageData(Pixel[][] data){
 		 Pixel[][] newData = new Pixel[this.getHeight()][this.getWidth()];
@@ -140,12 +138,15 @@ public class PixelImage {
 			
 		return newData;
 	}
+	
+	private static void computePixel(Pixel[][] data, Pixel[][] newData, int row, int col, int[][] weights,
+			int scaleFactor, int color, int weightsOffset) {
 
 		int newValue = 0;
 		for (int i = 0; i < weights.length; i++) {
 			for (int j = 0; j < weights[0].length; j++) {
 				int weight = weights[i][j];
-				int value = getColor(data[row - 1 + i][col - 1 + j], color);
+				int value = getColor(data[row - weightsOffset + i][col - weightsOffset + j], color);
 
 				newValue += value * weight;
 			}
