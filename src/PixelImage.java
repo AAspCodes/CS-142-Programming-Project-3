@@ -1,4 +1,5 @@
 import java.awt.image.*;
+import java.util.Arrays;
 
 /**
  * Provides an interface to a picture as an array of Pixels
@@ -123,10 +124,35 @@ public class PixelImage {
 
 	}
 	
+	
+	public void computeMedianFilter(int offset) {
+		Pixel[][] data = this.getData();
+		
+		Pixel[][] newData = copyImageData(data);
+		
+		for (int row = offset; row < this.getHeight() - offset; row++) {
+			for (int col = offset; col < this.getWidth() - offset; col++) {
+				// red
+				computePixel(data, newData, row, col, 0, offset);
+				// green
+				computePixel(data, newData, row, col, 1, offset);
+				// blue
+				computePixel(data, newData, row, col, 2, offset);
 			}
-			
-		return newData;
+		}
+		
+		this.setData(newData);
+		
+		
+		
 	}
+	
+	
+	private static int findMedian(int[] neighbors) {
+		Arrays.sort(neighbors);
+		return neighbors[neighbors.length / 2];
+	}
+	
 	
 	private static void computePixel(Pixel[][] data, Pixel[][] newData, int row, int col, int[][] weights,
 			int scaleFactor, int color, int weightsOffset) {
