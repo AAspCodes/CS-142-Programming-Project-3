@@ -108,12 +108,6 @@ public class PixelImage {
 		
 		// TODO add computed weight offset to improve flexibility
 		
-		// TODO improve efficiency
-		for (int i = 0; i < newData.length; i++) {
-			for (int j = 0; j < newData[0].length; j++) {
-				newData[i][j] = clone(data[i][j]);
-			}
-		}
 
 		for (int row = 1; row < data.length - 1; row++) {
 			for (int col = 1; col < data[0].length - 1; col++) {
