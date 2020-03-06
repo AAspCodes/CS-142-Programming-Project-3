@@ -161,7 +161,8 @@ public class PixelImage {
 
 	private static int findMedian(int[] neighbors) {
 		Arrays.sort(neighbors);
-		return neighbors[neighbors.length / 2];
+		int val = neighbors[neighbors.length / 2];
+		return val;
 	}
 
 	private static void computePixel(Pixel[][] data, Pixel[][] newData, int row, int col, int[][] weights,
