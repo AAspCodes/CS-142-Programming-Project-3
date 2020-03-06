@@ -93,9 +93,6 @@ public class PixelImage {
 	}
 	
 	
-	private Pixel clone(Pixel pixel) {
-		return new Pixel(pixel.red, pixel.green, pixel.blue);
-	}
 	
 	
 	
@@ -126,14 +123,6 @@ public class PixelImage {
 
 	}
 	
-	private Pixel[][] copyImageData(Pixel[][] data){
-		 Pixel[][] newData = new Pixel[this.getHeight()][this.getWidth()];
-			
-			// create copy of original image data
-			for (int i = 0; i < this.getHeight(); i++) {
-				for (int j = 0; j < this.getWidth(); j++) {
-					newData[i][j] = clone(data[i][j]);
-				}
 			}
 			
 		return newData;
@@ -157,6 +146,26 @@ public class PixelImage {
 		setColor(newData[row][col], color, newValue);
 
 	}
+	
+	
+	private Pixel clone(Pixel pixel) {
+		return new Pixel(pixel.red, pixel.green, pixel.blue);
+	}
+	
+	private Pixel[][] copyImageData(Pixel[][] data){
+		 Pixel[][] newData = new Pixel[this.getHeight()][this.getWidth()];
+			
+			// create copy of original image data
+			for (int i = 0; i < this.getHeight(); i++) {
+				for (int j = 0; j < this.getWidth(); j++) {
+					newData[i][j] = clone(data[i][j]);
+				}
+			}
+			
+		return newData;
+	}
+	
+
 
 	private static int getColor(Pixel pixel, int color) {
 		switch (color) {
