@@ -92,21 +92,16 @@ public class PixelImage {
 			}
 		}
 	}
-	
-	
-	
-	
-	
+
 	public void computeSummingFilter(int[][] weights, int scaleFactor) {
-		
+
 		Pixel[][] data = this.getData();
-		
+
 		Pixel[][] newData = copyImageData(data);
-		
-		
+
 		// TODO add computed weight offset to improve flexibility
-		
-		int weightsOffset = weights.length/2;
+
+		int weightsOffset = weights.length / 2;
 
 		// compute each color
 		for (int row = weightsOffset; row < this.getHeight() - weightsOffset; row++) {
@@ -119,17 +114,16 @@ public class PixelImage {
 				computePixel(data, newData, row, col, weights, scaleFactor, 2, weightsOffset);
 			}
 		}
-		
+
 		this.setData(newData);
 
 	}
-	
-	
+
 	public void computeMedianFilter(int offset) {
 		Pixel[][] data = this.getData();
-		
+
 		Pixel[][] newData = copyImageData(data);
-		
+
 		for (int row = offset; row < this.getHeight() - offset; row++) {
 			for (int col = offset; col < this.getWidth() - offset; col++) {
 				// red
@@ -140,40 +134,36 @@ public class PixelImage {
 				computePixel(data, newData, row, col, 2, offset);
 			}
 		}
-		
+
 		this.setData(newData);
-		
-		
-		
+
 	}
-	
+
 	private static void computePixel(Pixel[][] data, Pixel[][] newData, int row, int col, int color, int offset) {
-		
+
 		int width = offset * 2 + 1;
-		
+
 		int[] neighbors = new int[width * width];
-		
+
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < width; j++) {
-				
+
 				int value = getColor(data[row - offset + i][col - offset + j], color);
 				neighbors[i * 3 + j] = value;
-				
+
 			}
 		}
-		
+
 		int newValue = findMedian(neighbors);
-		
 
 		setColor(newData[row][col], color, newValue);
 	}
-	
+
 	private static int findMedian(int[] neighbors) {
 		Arrays.sort(neighbors);
 		return neighbors[neighbors.length / 2];
 	}
-	
-	
+
 	private static void computePixel(Pixel[][] data, Pixel[][] newData, int row, int col, int[][] weights,
 			int scaleFactor, int color, int weightsOffset) {
 
@@ -192,26 +182,23 @@ public class PixelImage {
 		setColor(newData[row][col], color, newValue);
 
 	}
-	
-	
+
 	private Pixel clone(Pixel pixel) {
 		return new Pixel(pixel.red, pixel.green, pixel.blue);
 	}
-	
-	private Pixel[][] copyImageData(Pixel[][] data){
-		 Pixel[][] newData = new Pixel[this.getHeight()][this.getWidth()];
-			
-			// create copy of original image data
-			for (int i = 0; i < this.getHeight(); i++) {
-				for (int j = 0; j < this.getWidth(); j++) {
-					newData[i][j] = clone(data[i][j]);
-				}
+
+	private Pixel[][] copyImageData(Pixel[][] data) {
+		Pixel[][] newData = new Pixel[this.getHeight()][this.getWidth()];
+
+		// create copy of original image data
+		for (int i = 0; i < this.getHeight(); i++) {
+			for (int j = 0; j < this.getWidth(); j++) {
+				newData[i][j] = clone(data[i][j]);
 			}
-			
+		}
+
 		return newData;
 	}
-	
-
 
 	private static int getColor(Pixel pixel, int color) {
 		switch (color) {
@@ -245,7 +232,7 @@ public class PixelImage {
 			pixel.blue = newValue;
 			break;
 		default:
-			assert false : "Wrong number for color, should be 0,1, or 2. " + color; 
+			assert false : "Wrong number for color, should be 0,1, or 2. " + color;
 		}
 
 	}
