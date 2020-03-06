@@ -2,6 +2,8 @@
  * 
  * @author Anthony Asp, Emily Lott
  *
+ *Filter the image using Gaussian Blur. 3x3
+ *
  */
 public class GaussianFilter implements Filter {
 	int[][] weights = {{1,2,1},
