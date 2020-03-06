@@ -97,9 +97,9 @@ public class PixelImage {
 		return new Pixel(pixel.red, pixel.green, pixel.blue);
 	}
 	
-	// add a method to compute a new image given weighted averages
-	public Pixel[][] computeFilter(Pixel[][] data, int[][] weights, int scaleFactor) {
-		Pixel[][] newData = new Pixel[data.length][data[0].length];
+	
+	
+	public void computeSummingFilter(int[][] weights, int scaleFactor) {
 		
 		Pixel[][] data = this.getData();
 		
@@ -125,7 +125,8 @@ public class PixelImage {
 				computePixel(data, newData, row, col, weights, scaleFactor, 2);
 			}
 		}
-		return newData;
+		
+		this.setData(newData);
 
 	}
 		// TODO improve efficancy by only storeing the previous 3 pixels on the top row, 
