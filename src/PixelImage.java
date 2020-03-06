@@ -147,6 +147,26 @@ public class PixelImage {
 		
 	}
 	
+	private static void computePixel(Pixel[][] data, Pixel[][] newData, int row, int col, int color, int offset) {
+		
+		int width = offset * 2 + 1;
+		
+		int[] neighbors = new int[width * width];
+		
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < width; j++) {
+				
+				int value = getColor(data[row - offset + i][col - offset + j], color);
+				neighbors[i * 3 + j] = value;
+				
+			}
+		}
+		
+		int newValue = findMedian(neighbors);
+		
+
+		setColor(newData[row][col], color, newValue);
+	}
 	
 	private static int findMedian(int[] neighbors) {
 		Arrays.sort(neighbors);
