@@ -195,7 +195,7 @@ public class PixelImage {
 			pixel.blue = newValue;
 			break;
 		default:
-			// TODO throw error!!
+			assert false : "Wrong number for color, should be 0,1, or 2. " + color; 
 		}
 
 	}
