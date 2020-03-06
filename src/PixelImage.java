@@ -93,7 +93,7 @@ public class PixelImage {
 	}
 	
 	
-	public Pixel clone(Pixel pixel) {
+	private Pixel clone(Pixel pixel) {
 		return new Pixel(pixel.red, pixel.green, pixel.blue);
 	}
 	
@@ -163,7 +163,7 @@ public class PixelImage {
 
 	}
 
-	public static int getColor(Pixel pixel, int color) {
+	private static int getColor(Pixel pixel, int color) {
 		switch (color) {
 		case 0:
 			return pixel.red;
@@ -172,12 +172,11 @@ public class PixelImage {
 		case 2:
 			return pixel.blue;
 		default:
-			// TODO Fail loudly, or not at all...??
 			return 0;
 		}
 	}
 
-	public static void setColor(Pixel pixel, int color, int newValue) {
+	private static void setColor(Pixel pixel, int color, int newValue) {
 
 		if (newValue > 255) {
 			newValue = 255;
