@@ -136,7 +136,6 @@ public class PixelImage {
 		}
 
 		this.setData(newData);
-
 	}
 
 	private static void computePixel(Pixel[][] data, Pixel[][] newData, int row, int col, int color, int offset) {
