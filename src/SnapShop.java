@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.io.*;
 
@@ -105,7 +107,7 @@ public class SnapShop extends JFrame {
 			filenameBox = new JTextArea(1, 50);
 			add(filenameBox);
 
-			JButton loadButton = new JButton("Load");
+			JButton loadButton = new JButton("Save");
 			loadButton.addActionListener(this);
 			add(loadButton);
 		}
@@ -113,9 +115,9 @@ public class SnapShop extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			String filename = filenameBox.getText().trim();
 			try {
-				ip.loadImage(filename);
+				ip.saveImage(filename);
 			} catch (Exception ex) {
-				JOptionPane.showMessageDialog(s, "Could not open file",
+				JOptionPane.showMessageDialog(s, "Unable to save File.",
 						"Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
@@ -196,6 +198,14 @@ public class SnapShop extends JFrame {
 			s.pack();
 			s.repaint();
 		}
+		
+		public void saveImage(String filename) throws Exception {
+			try { 
+				ImageIO.write(bi, "jpg", new File(filename));
+			} catch (Exception e) {
+				throw e;
+			}
+		}
 
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
@@ -271,6 +281,10 @@ public class SnapShop extends JFrame {
 	 */
 	public void setDefaultLoadingFilename(String filename) {
 		fl.setDefaultLoadingFilename(filename);
+	}
+	
+	public void setDefaultSavingFilename(String filename) {
+		fs.setDefaultSavingFilename(filename);
 	}
 
 	/**
