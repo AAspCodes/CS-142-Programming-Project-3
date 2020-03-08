@@ -3,6 +3,7 @@
  * change it. But model your other classes (such as FlipVerticalFilter) after
  * it.
  */
+
 public class FlipHorizontalFilter implements Filter {
 	public void filter(PixelImage pi) {
 		Pixel[][] data = pi.getData();

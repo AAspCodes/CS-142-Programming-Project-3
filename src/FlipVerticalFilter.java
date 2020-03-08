@@ -3,6 +3,7 @@
  * 
  * Filter that flips the image vertically.
  */
+
 public class FlipVerticalFilter implements Filter {
 	
 	public void filter(PixelImage theImage) {
