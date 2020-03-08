@@ -84,6 +84,8 @@ public class SnapShop extends JFrame {
 			filenameBox.setText(filename);
 		}
 	}
+	
+	
 
 	private class FilterButtons extends JPanel {
 		private SnapShop s;

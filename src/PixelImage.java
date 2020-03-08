@@ -162,7 +162,7 @@ public class PixelImage {
 			for (int j = 0; j < filterWidth; j++) {
 
 				int value = getColor(data[row - borderWidth + i][col - borderWidth + j], color);
-				neighbors[i * 3 + j] = value;
+				neighbors[i * filterWidth + j] = value;
 
 			}
 		}
