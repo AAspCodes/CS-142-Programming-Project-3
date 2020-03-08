@@ -96,10 +96,7 @@ public class PixelImage {
 	public void computeSummingFilter(int[][] weights, int scaleFactor) {
 
 		Pixel[][] data = this.getData();
-
 		Pixel[][] newData = copyImageData(data);
-
-		// TODO add computed weight offset to improve flexibility
 
 		int weightsOffset = weights.length / 2;
 
@@ -119,49 +116,23 @@ public class PixelImage {
 
 	}
 
-	public void computeMedianFilter(int offset) {
+	public void computeMedianFilter(int borderWidth, int filterWidth) {
 		Pixel[][] data = this.getData();
 
 		Pixel[][] newData = copyImageData(data);
 
-		for (int row = offset; row < this.getHeight() - offset; row++) {
-			for (int col = offset; col < this.getWidth() - offset; col++) {
+		for (int row = borderWidth; row < this.getHeight() - borderWidth; row++) {
+			for (int col = borderWidth; col < this.getWidth() - borderWidth; col++) {
 				// red
-				computePixel(data, newData, row, col, 0, offset);
+				computePixel(data, newData, row, col, 0, borderWidth, filterWidth);
 				// green
-				computePixel(data, newData, row, col, 1, offset);
+				computePixel(data, newData, row, col, 1, borderWidth, filterWidth);
 				// blue
-				computePixel(data, newData, row, col, 2, offset);
+				computePixel(data, newData, row, col, 2, borderWidth, filterWidth);
 			}
 		}
 
 		this.setData(newData);
-	}
-
-	private static void computePixel(Pixel[][] data, Pixel[][] newData, int row, int col, int color, int offset) {
-
-		int width = offset * 2 + 1;
-
-		int[] neighbors = new int[width * width];
-
-		for (int i = 0; i < width; i++) {
-			for (int j = 0; j < width; j++) {
-
-				int value = getColor(data[row - offset + i][col - offset + j], color);
-				neighbors[i * 3 + j] = value;
-
-			}
-		}
-
-		int newValue = findMedian(neighbors);
-
-		setColor(newData[row][col], color, newValue);
-	}
-
-	private static int findMedian(int[] neighbors) {
-		Arrays.sort(neighbors);
-		int val = neighbors[neighbors.length / 2];
-		return val;
 	}
 
 	private static void computePixel(Pixel[][] data, Pixel[][] newData, int row, int col, int[][] weights,
@@ -182,9 +153,29 @@ public class PixelImage {
 		setColor(newData[row][col], color, newValue);
 
 	}
+	
+	private static void computePixel(Pixel[][] data, Pixel[][] newData, int row, int col, int color, int borderWidth, int filterWidth) {
 
-	private Pixel clone(Pixel pixel) {
-		return new Pixel(pixel.red, pixel.green, pixel.blue);
+		int[] neighbors = new int[filterWidth * filterWidth];
+
+		for (int i = 0; i < filterWidth; i++) {
+			for (int j = 0; j < filterWidth; j++) {
+
+				int value = getColor(data[row - borderWidth + i][col - borderWidth + j], color);
+				neighbors[i * 3 + j] = value;
+
+			}
+		}
+
+		int newValue = findMedian(neighbors);
+
+		setColor(newData[row][col], color, newValue);
+	}
+
+	private static int findMedian(int[] neighbors) {
+		Arrays.sort(neighbors);
+		int val = neighbors[neighbors.length / 2];
+		return val;
 	}
 
 	private Pixel[][] copyImageData(Pixel[][] data) {
@@ -198,6 +189,10 @@ public class PixelImage {
 		}
 
 		return newData;
+	}
+	
+	private Pixel clone(Pixel pixel) {
+		return new Pixel(pixel.red, pixel.green, pixel.blue);
 	}
 
 	private static int getColor(Pixel pixel, int color) {
