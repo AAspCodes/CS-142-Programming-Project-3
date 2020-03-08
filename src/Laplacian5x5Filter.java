@@ -1,12 +1,8 @@
-
 /**
- * 
  * @author Anthony Asp, Emily Lott
  * 
  * Filter that converts image using Laplacian filter technique. but with 5x5
- *
  */
-// TODO needs work
 public class Laplacian5x5Filter implements Filter {
 	int[][] weights = {{-1,-1,-1,-1,-1},
 					   {-1,-1,-1,-1,-1},

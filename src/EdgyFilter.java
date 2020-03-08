@@ -1,3 +1,10 @@
+/**
+ * 
+ * @author Anthony Asp, Emily Lott
+ * 
+ * Filter that implements "edgy Filter".
+ *
+ */
 
 public class EdgyFilter implements Filter {
 	int[][] weights = {{-1,-1,-1},

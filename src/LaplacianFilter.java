@@ -1,9 +1,8 @@
 /**
- * 
  * @author Anthony Asp, Emily Lott
  * 
  * Filter that converts image using Laplacian filter technique.
- *
+ * 
  */
 public class LaplacianFilter implements Filter {
 	int[][] weights = {{-1,-1,-1},

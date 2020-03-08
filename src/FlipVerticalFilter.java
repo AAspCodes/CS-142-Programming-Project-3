@@ -1,9 +1,7 @@
 /**
- * 
  * @author Anthony Asp, Emily Lott
  * 
  * Filter that flips the image vertically.
- *
  */
 public class FlipVerticalFilter implements Filter {
 	public void filter(PixelImage pi) {

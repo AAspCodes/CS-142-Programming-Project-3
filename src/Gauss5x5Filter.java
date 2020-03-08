@@ -1,9 +1,7 @@
 /**
- * 
  * @author Anthony Asp, Emily Lott
  *
  *Filter the image using Gaussian Blur. 5x5
- *
  */
 public class Gauss5x5Filter implements Filter {
 	int[][] weights = {{1,2,3,2,1},
