@@ -10,6 +10,7 @@ import java.io.*;
  */
 public class SnapShop extends JFrame {
 	FileLoader fl;
+	FileSaver fs;
 	FilterButtons fb;
 	ImagePanel ip;
 	RenderingDialog rd;
@@ -37,6 +38,9 @@ public class SnapShop extends JFrame {
 
 		fl = new FileLoader(this);
 		this.getContentPane().add(fl, BorderLayout.NORTH);
+		
+		fs = new FileSaver(this);
+		this.getContentPane().add(fs, BorderLayout.SOUTH);
 
 		fb = new FilterButtons(this);
 		this.getContentPane().add(fb, BorderLayout.WEST);
@@ -84,6 +88,7 @@ public class SnapShop extends JFrame {
 			filenameBox.setText(filename);
 		}
 	}
+	
 	private class FileSaver extends JPanel implements ActionListener {
 		private JTextArea filenameBox;
 		private ImagePanel ip;
@@ -95,7 +100,7 @@ public class SnapShop extends JFrame {
 			this.s = s;
 			this.ip = s.getImagePanel();
 
-			add(new JLabel("Enter file name: "));
+			add(new JLabel("Enter Saving file name: "));
 
 			filenameBox = new JTextArea(1, 50);
 			add(filenameBox);
