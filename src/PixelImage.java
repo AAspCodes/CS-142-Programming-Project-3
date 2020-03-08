@@ -207,10 +207,8 @@ public class PixelImage {
 			return pixel.red;
 		case 1:
 			return pixel.green;
-		case 2:
-			return pixel.blue;
 		default:
-			return 0;
+			return pixel.blue;
 		}
 	}
 
@@ -229,11 +227,9 @@ public class PixelImage {
 		case 1:
 			pixel.green = newValue;
 			break;
-		case 2:
+		default:
 			pixel.blue = newValue;
 			break;
-		default:
-			assert false : "Wrong number for color, should be 0,1, or 2. " + color;
 		}
 
 	}
