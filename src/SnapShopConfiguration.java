@@ -6,6 +6,7 @@
  * @author Anthony Asp, Emily Lott
  * @version March 3, 2020
  */
+
 public class SnapShopConfiguration {
 	/**
 	 * Method to configure the SnapShop. Call methods like addFilter and
@@ -20,17 +21,17 @@ public class SnapShopConfiguration {
 		theShop.addFilter(new FlipHorizontalFilter(), "Flip Horizontal");
 		theShop.addFilter(new FlipVerticalFilter(), "Flip Vertical");
 		theShop.addFilter(new PhotoNegativeFilter(), "Photo Negative");
-		theShop.addFilter(new GaussianFilter(), "Gaussian Filter");
-		theShop.addFilter(new LaplacianFilter(), "Laplacian Filter");
-		theShop.addFilter(new UnsharpMaskingFilter(), "Unsharp Masking Filter");
-		theShop.addFilter(new EdgyFilter(), "Edgy Filter");
+		theShop.addFilter(new UnsharpMasking3x3Filter(), "Unsharp Masking 3x3 Filter");
+		theShop.addFilter(new Edgy3x3Filter(), "Edgy 3x3 Filter");
 		theShop.addFilter(new Mean3x3Filter(), "Mean 3x3 Filter");
-		theShop.addFilter(new Gauss5x5Filter(), "Gauss 5x5 Filter");
+		theShop.addFilter(new Gaussian3x3Filter(), "Gaussian 3x3 Filter");
+		theShop.addFilter(new Gaussian5x5Filter(), "Gaussian 5x5 Filter");
+		theShop.addFilter(new StrictLaplacian3x3Filter(), "Strict Laplacian 3x3 Filter");
+		theShop.addFilter(new Laplacian3x3Filter(), "Laplacian 3x3 Filter");
 		theShop.addFilter(new Laplacian5x5Filter(), "Laplacian 5x5 Filter");
+		theShop.addFilter(new Laplacian7x7Filter(), "Laplacian 7x7 Filter");
 		theShop.addFilter(new Median3x3Filter(), "Median 3x3 Filter");
 		theShop.addFilter(new Median5x5Filter(), "Median 5x5 Filter");
 		theShop.addFilter(new Median7x7Filter(), "Median 7x7 Filter");
-		
-		// add your other filters below
 	}
 }
