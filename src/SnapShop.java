@@ -84,6 +84,17 @@ public class SnapShop extends JFrame {
 			filenameBox.setText(filename);
 		}
 	}
+	private class FileSaver extends JPanel implements ActionListener {
+		private JTextArea filenameBox;
+		private ImagePanel ip;
+		private SnapShop s;
+
+		public FileSaver(SnapShop s) {
+			super(new FlowLayout());
+
+			this.s = s;
+			this.ip = s.getImagePanel();
+
 			add(new JLabel("Enter file name: "));
 
 			filenameBox = new JTextArea(1, 50);
@@ -104,7 +115,7 @@ public class SnapShop extends JFrame {
 			}
 		}
 
-		public void setDefaultFilename(String filename) {
+		public void setDefaultSavingFilename(String filename) {
 			filenameBox.setText(filename);
 		}
 	}
