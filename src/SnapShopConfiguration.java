@@ -17,7 +17,8 @@ public class SnapShopConfiguration {
 	 */
 	public static void configure(SnapShop theShop) {
 
-		theShop.setDefaultFilename("/Users/pro/Documents/ProgrammingFiles/Java/eclipse/PP3/src/billg.jpg");
+		theShop.setDefaultLoadingFilename("/Users/pro/Documents/ProgrammingFiles/Java/eclipse/PP3/src/billg.jpg");
+//		theShop.setDefaultSavingFilename("/Users/pro/Documents/ProgrammingFiles/Java/eclipse/PP3/src/billg.jpg");
 		theShop.addFilter(new FlipHorizontalFilter(), "Flip Horizontal");
 		theShop.addFilter(new FlipVerticalFilter(), "Flip Vertical");
 		theShop.addFilter(new PhotoNegativeFilter(), "Photo Negative");

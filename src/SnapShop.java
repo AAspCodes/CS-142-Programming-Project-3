@@ -60,6 +60,30 @@ public class SnapShop extends JFrame {
 			this.s = s;
 			this.ip = s.getImagePanel();
 
+			add(new JLabel("Enter loading file name: "));
+
+			filenameBox = new JTextArea(1, 50);
+			add(filenameBox);
+
+			JButton loadButton = new JButton("Load");
+			loadButton.addActionListener(this);
+			add(loadButton);
+		}
+
+		public void actionPerformed(ActionEvent e) {
+			String filename = filenameBox.getText().trim();
+			try {
+				ip.loadImage(filename);
+			} catch (Exception ex) {
+				JOptionPane.showMessageDialog(s, "Could not open file",
+						"Error", JOptionPane.ERROR_MESSAGE);
+			}
+		}
+
+		public void setDefaultLoadingFilename(String filename) {
+			filenameBox.setText(filename);
+		}
+	}
 			add(new JLabel("Enter file name: "));
 
 			filenameBox = new JTextArea(1, 50);
@@ -229,8 +253,8 @@ public class SnapShop extends JFrame {
 	 * @param filename
 	 *            The filename
 	 */
-	public void setDefaultFilename(String filename) {
-		fl.setDefaultFilename(filename);
+	public void setDefaultLoadingFilename(String filename) {
+		fl.setDefaultLoadingFilename(filename);
 	}
 
 	/**
