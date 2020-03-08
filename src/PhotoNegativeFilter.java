@@ -3,6 +3,7 @@
  * 
  * Filter that converts image to a photo negative of itself.
  */
+
 public class PhotoNegativeFilter implements Filter {
 	
 	public void filter(PixelImage theImage) {

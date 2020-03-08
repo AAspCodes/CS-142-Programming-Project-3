@@ -2,6 +2,7 @@
  * Represents a pixel, which is a red, green, and blue value This class is
  * COMPLETE. Don't change it.
  */
+
 public class Pixel {
 	// RGB color values for this pixel (0-255)
 	public int red;
