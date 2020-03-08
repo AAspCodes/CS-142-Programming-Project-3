@@ -6,8 +6,9 @@
  *
  */
 public class Median3x3Filter implements Filter {
+	int centralPixelBorderWidth = 1;
 	
-	public void filter(PixelImage pi) {
-		pi.computeMedianFilter(1);
+	public void filter(PixelImage theImage) {
+		theImage.computeMedianFilter(centralPixelBorderWidth);
 	}
 }
