@@ -12,7 +12,6 @@ public class LaplacianFilter implements Filter {
 
 	public void filter(PixelImage pi) {
 		pi.computeSummingFilter(weights, scaleFactor);
-		
-	}
 
+	}
 }

@@ -15,5 +15,4 @@ public class Laplacian5x5Filter implements Filter {
 		pi.computeSummingFilter(weights, scaleFactor);
 
 	}
-
 }
