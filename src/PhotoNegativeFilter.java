@@ -5,15 +5,15 @@
  */
 public class PhotoNegativeFilter implements Filter {
 	
-	public void filter(PixelImage pi) {
-		Pixel[][] data = pi.getData();
+	public void filter(PixelImage theImage) {
+		Pixel[][] data = theImage.getData();
 
-		for (int row = 0; row < pi.getHeight(); row++) {
-			for (int col = 0; col < pi.getWidth(); col++) {				
+		for (int row = 0; row < theImage.getHeight(); row++) {
+			for (int col = 0; col < theImage.getWidth(); col++) {				
 				invertPixel(data[row][col]);
 			}
 		}
-		pi.setData(data);
+		theImage.setData(data);
 	}
 	
 	private void invertPixel(Pixel pixel) {
