@@ -5,17 +5,16 @@
  */
 
 public class FlipHorizontalFilter implements Filter {
-	public void filter(PixelImage pi) {
-		Pixel[][] data = pi.getData();
+	public void filter(PixelImage theImage) {
+		Pixel[][] data = theImage.getData();
 
-		for (int row = 0; row < pi.getHeight(); row++) {
-			for (int col = 0; col < pi.getWidth() / 2; col++) {
+		for (int row = 0; row < theImage.getHeight(); row++) {
+			for (int col = 0; col < theImage.getWidth() / 2; col++) {
 				Pixel temp = data[row][col];
-				data[row][col] = data[row][pi.getWidth() - col - 1];
-				data[row][pi.getWidth() - col - 1] = temp;
+				data[row][col] = data[row][theImage.getWidth() - col - 1];
+				data[row][theImage.getWidth() - col - 1] = temp;
 			}
 		}
-
-		pi.setData(data);
+		theImage.setData(data);
 	}
 }
