@@ -12,7 +12,7 @@ import java.io.*;
  */
 public class SnapShop extends JFrame {
 	FileLoader fl;
-	FileSaver fs;
+	FileSaver fs; // This was added to implement file saving.
 	FilterButtons fb;
 	ImagePanel ip;
 	RenderingDialog rd;
@@ -41,6 +41,7 @@ public class SnapShop extends JFrame {
 		fl = new FileLoader(this);
 		this.getContentPane().add(fl, BorderLayout.NORTH);
 		
+		// this was added to implement file saving
 		fs = new FileSaver(this);
 		this.getContentPane().add(fs, BorderLayout.SOUTH);
 
@@ -91,6 +92,11 @@ public class SnapShop extends JFrame {
 		}
 	}
 	
+	/**
+	 *  We added this to allow Picture saving.
+	 *  It was implemented from a copy of File Loader.
+	 *  We attempted to make minimal changes in service of readability.
+	 */
 	private class FileSaver extends JPanel implements ActionListener {
 		private JTextArea filenameBox;
 		private ImagePanel ip;
@@ -199,6 +205,9 @@ public class SnapShop extends JFrame {
 			s.repaint();
 		}
 		
+		/**
+		 * This method was added to implement image saving. 
+		 */
 		public void saveImage(String filename) throws Exception {
 			try { 
 				ImageIO.write(bi, "jpg", new File(filename));
@@ -278,11 +287,19 @@ public class SnapShop extends JFrame {
 	 * 
 	 * @param filename
 	 *            The filename
+	 *   
+	 * This method name was changed to differentiate it from the new method
+	 * "setDefaultSavingFilename", the method call was also changed in SnapShopConfiguration.java.
+	 * no changes to functionality were made.
 	 */
 	public void setDefaultLoadingFilename(String filename) {
 		fl.setDefaultLoadingFilename(filename);
 	}
 	
+	/** 
+	 * this method was added to implement file saving.
+	 * A corresponding method call was also added to SnapShopConfiguration.java.
+	 */
 	public void setDefaultSavingFilename(String filename) {
 		fs.setDefaultSavingFilename(filename);
 	}

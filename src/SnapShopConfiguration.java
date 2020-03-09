@@ -16,9 +16,13 @@ public class SnapShopConfiguration {
 	 *            A pointer to the application
 	 */
 	public static void configure(SnapShop theShop) {
-
+		
+		// method name changed to differentiate from "setDefaultSavingFilename
 		theShop.setDefaultLoadingFilename("/Users/pro/Desktop/p.jpg");
+		
+		// method added to implement file saving
 		theShop.setDefaultSavingFilename("/Users/pro/Desktop/");
+		
 		theShop.addFilter(new FlipHorizontalFilter(), "Flip Horizontal");
 		theShop.addFilter(new FlipVerticalFilter(), "Flip Vertical");
 		theShop.addFilter(new PhotoNegativeFilter(), "Photo Negative");
@@ -37,7 +41,6 @@ public class SnapShopConfiguration {
 		theShop.addFilter(new Median3x3Filter(), "Median 3x3 Filter");
 		theShop.addFilter(new Median5x5Filter(), "Median 5x5 Filter");
 		theShop.addFilter(new Median7x7Filter(), "Median 7x7 Filter");
-		theShop.addFilter(new AwesomeFilter(), "Awesome(but slow) Filter");
-		
+		theShop.addFilter(new AwesomeFilter(), "Awesome (but slow) Filter");
 	}
 }

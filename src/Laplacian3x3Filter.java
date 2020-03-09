@@ -12,6 +12,5 @@ public class Laplacian3x3Filter implements Filter {
 
 	public void filter(PixelImage theImage) {
 		theImage.computeSummingFilter(weights, scaleFactor);
-
 	}
 }

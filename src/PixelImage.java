@@ -111,14 +111,11 @@ public class PixelImage {
 				computePixel(data, newData, row, col, weights, scaleFactor, 2, weightsOffset);
 			}
 		}
-
 		this.setData(newData);
-
 	}
 
 	public void computeMedianFilter(int borderWidth, int filterWidth) {
 		Pixel[][] data = this.getData();
-
 		Pixel[][] newData = copyImageData(data);
 
 		for (int row = borderWidth; row < this.getHeight() - borderWidth; row++) {
@@ -131,7 +128,6 @@ public class PixelImage {
 				computePixel(data, newData, row, col, 2, borderWidth, filterWidth);
 			}
 		}
-
 		this.setData(newData);
 	}
 
@@ -147,11 +143,9 @@ public class PixelImage {
 				newValue += value * weight;
 			}
 		}
-
 		newValue /= scaleFactor;
 
 		setColor(newData[row][col], color, newValue);
-
 	}
 	
 	private static void computePixel(Pixel[][] data, Pixel[][] newData, int row, int col, int color, int borderWidth, int filterWidth) {
@@ -160,13 +154,10 @@ public class PixelImage {
 
 		for (int i = 0; i < filterWidth; i++) {
 			for (int j = 0; j < filterWidth; j++) {
-
 				int value = getColor(data[row - borderWidth + i][col - borderWidth + j], color);
 				neighbors[i * filterWidth + j] = value;
-
 			}
 		}
-
 		int newValue = findMedian(neighbors);
 
 		setColor(newData[row][col], color, newValue);
@@ -187,7 +178,6 @@ public class PixelImage {
 				newData[i][j] = clone(data[i][j]);
 			}
 		}
-
 		return newData;
 	}
 	
@@ -225,7 +215,5 @@ public class PixelImage {
 			pixel.blue = newValue;
 			break;
 		}
-
 	}
-
 }

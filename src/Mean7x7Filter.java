@@ -1,3 +1,8 @@
+/**
+ * @author Anthony Asp, Emily Plott
+ * 
+ * 7x7 Mean filter
+ */
 
 public class Mean7x7Filter implements Filter {
 	int[][] weights = {{1,1,1,1,1,1,1},

@@ -1,7 +1,7 @@
 /**
  * @author Anthony Asp, Emily Lott
  * 
- * Filter that implements "edgy Filter".
+ * Filter that implements a 3x3 "edgy Filter".
  */
 
 public class Edgy3x3Filter implements Filter {

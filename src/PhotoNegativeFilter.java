@@ -5,7 +5,6 @@
  */
 
 public class PhotoNegativeFilter implements Filter {
-	
 	public void filter(PixelImage theImage) {
 		Pixel[][] data = theImage.getData();
 
