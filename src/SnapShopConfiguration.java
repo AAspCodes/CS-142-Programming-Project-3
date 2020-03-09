@@ -25,7 +25,7 @@ public class SnapShopConfiguration {
 		
 		theShop.addFilter(new FlipHorizontalFilter(), "Flip Horizontal");
 		theShop.addFilter(new FlipVerticalFilter(), "Flip Vertical");
-		theShop.addFilter(new PhotoNegativeFilter(), "Photo Negative");
+		theShop.addFilter(new NegativeFilter(), "Negative Filter");
 		theShop.addFilter(new UnsharpMasking3x3Filter(), "Unsharp Masking 3x3 Filter");
 		theShop.addFilter(new Edgy3x3Filter(), "Edgy 3x3 Filter");
 		theShop.addFilter(new Mean3x3Filter(), "Mean 3x3 Filter");
