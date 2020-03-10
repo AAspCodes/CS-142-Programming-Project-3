@@ -23,6 +23,7 @@ public class SnapShopConfiguration {
 		// method added to implement file saving
 		theShop.setDefaultSavingFilename("/Users/pro/Desktop/");
 		
+		theShop.addFilter(new SpeedTestFilter(), "SpeedTest");
 		theShop.addFilter(new BlackAndWhiteFilter(), "Black And White");
 		theShop.addFilter(new GreyScaleFilter(), "GreyScale");
 		theShop.addFilter(new MonochromeRed(), "Monochrome Red");
