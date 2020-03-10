@@ -24,6 +24,7 @@ public class SnapShopConfiguration {
 		theShop.setDefaultSavingFilename("/Users/pro/Desktop/");
 		
 		theShop.addFilter(new BlackAndWhiteFilter(), "Black And White");
+		theShop.addFilter(new GreyScaleFilter(), "GreyScale");
 		theShop.addFilter(new FlipHorizontalFilter(), "Flip Horizontal");
 		theShop.addFilter(new FlipVerticalFilter(), "Flip Vertical");
 		theShop.addFilter(new NegativeFilter(), "Negative Filter");
