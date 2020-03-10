@@ -26,6 +26,7 @@ public class SnapShopConfiguration {
 		theShop.addFilter(new BlackAndWhiteFilter(), "Black And White");
 		theShop.addFilter(new GreyScaleFilter(), "GreyScale");
 		theShop.addFilter(new MonochromeRed(), "Monochrome Red");
+		theShop.addFilter(new MonochromeGreen(), "Monochrome Green");
 		theShop.addFilter(new MonochromeBlue(), "Monochrome Blue");
 		theShop.addFilter(new FlipHorizontalFilter(), "Flip Horizontal");
 		theShop.addFilter(new FlipVerticalFilter(), "Flip Vertical");
