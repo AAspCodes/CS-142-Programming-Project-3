@@ -15,7 +15,7 @@ public class PixelImage {
 	 * @param bi The image
 	 */
 	public PixelImage(BufferedImage bi) {
-		// initialise instance variables
+		// Initialize instance variables
 		this.myImage = bi;
 		this.width = bi.getWidth();
 		this.height = bi.getHeight();
@@ -94,16 +94,16 @@ public class PixelImage {
 	}
 
 	public void computeSummingFilter(int[][] weights, int scaleFactor) {
-		int weightsOffset = weights.length / 2;
+		int offset = weights.length / 2;
 		
 		Pixel[][] data = this.getData();
-		Pixel[][] newData = copyImageData(data, weightsOffset);
+		Pixel[][] newData = copyImageData(data, offset);
 
 		// compute each color
-		for (int row = weightsOffset; row < this.getHeight() - weightsOffset; row++) {
-			for (int col = weightsOffset; col < this.getWidth() - weightsOffset; col++) {
-				int adjustedRow = row - weightsOffset;
-				int adjustedCol = col - weightsOffset;
+		for (int row = offset; row < this.getHeight() - offset; row++) {
+			for (int col = offset; col < this.getWidth() - offset; col++) {
+				int adjustedRow = row - offset;
+				int adjustedCol = col - offset;
 				
 				// red
 				int red = computePixel(data, adjustedRow, adjustedCol, weights, scaleFactor, 0);
@@ -118,14 +118,14 @@ public class PixelImage {
 		this.setData(newData);
 	}
 
-	public void computeMedianFilter(int borderWidth, int filterWidth) {
+	public void computeMedianFilter(int offset, int filterWidth) {
 		Pixel[][] data = this.getData();
-		Pixel[][] newData = copyImageData(data, borderWidth);
+		Pixel[][] newData = copyImageData(data, offset);
 
-		for (int row = borderWidth; row < this.getHeight() - borderWidth; row++) {
-			for (int col = borderWidth; col < this.getWidth() - borderWidth; col++) {
-				int adjustedRow = row - borderWidth;
-				int adjustedCol = col - borderWidth;
+		for (int row = offset; row < this.getHeight() - offset; row++) {
+			for (int col = offset; col < this.getWidth() - offset; col++) {
+				int adjustedRow = row - offset;
+				int adjustedCol = col - offset;
 				
 				// red
 				int red = computePixel(data, adjustedRow, adjustedCol, filterWidth, 0);
