@@ -34,7 +34,7 @@ public class SpeedTestFilter implements Filter {
 			totalTime += end-start;
 		}
 		
-		System.out.println(totalTime / 1000000000.0);
+		System.out.println(totalTime / 10E8 + "  Seconds");
 
 	}
 
