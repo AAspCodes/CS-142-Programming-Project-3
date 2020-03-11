@@ -11,6 +11,6 @@ public class Gaussian3x3Filter implements Filter {
 	int scaleFactor = 16;
 	
 	public void filter(PixelImage theImage) {
-		theImage.computeSummingFilter(weights, scaleFactor);
+		theImage.computeFilter(weights, scaleFactor);
 	}
 }

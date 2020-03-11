@@ -13,6 +13,6 @@ public class Gaussian5x5Filter implements Filter {
 	int scaleFactor = 81;
 
 	public void filter(PixelImage pi) {
-		pi.computeSummingFilter(weights, scaleFactor);
+		pi.computeFilter(weights, scaleFactor);
 	}
 }

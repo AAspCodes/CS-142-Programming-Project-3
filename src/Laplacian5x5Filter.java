@@ -13,6 +13,6 @@ public class Laplacian5x5Filter implements Filter {
 	int scaleFactor = 1;
 	
 	public void filter(PixelImage theImage) {
-		theImage.computeSummingFilter(weights, scaleFactor);
+		theImage.computeFilter(weights, scaleFactor);
 	}
 }

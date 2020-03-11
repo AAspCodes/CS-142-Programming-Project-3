@@ -92,8 +92,8 @@ public class PixelImage {
 			}
 		}
 	}
-
-	public void computeSummingFilter(int[][] weights, int scaleFactor) {
+	// summing compute
+	public void computeFilter(int[][] weights, int scaleFactor) {
 		int offset = weights.length / 2;
 		
 		Pixel[][] data = this.getData();
