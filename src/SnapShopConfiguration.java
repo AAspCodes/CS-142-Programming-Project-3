@@ -17,13 +17,12 @@ public class SnapShopConfiguration {
 	 */
 	public static void configure(SnapShop theShop) {
 		
-		// method name changed to differentiate from "setDefaultSavingFilename
+		// method name changed to differentiate from "setDefaultSavingFilename"
 		theShop.setDefaultLoadingFilename("/Users/pro/Desktop/p.jpg");
 		
 		// method added to implement file saving
 		theShop.setDefaultSavingFilename("/Users/pro/Desktop/");
 		
-		theShop.addFilter(new SpeedTestFilter(), "SpeedTest");
 		theShop.addFilter(new BlackAndWhiteFilter(), "Black And White");
 		theShop.addFilter(new GreyScaleFilter(), "GreyScale");
 		theShop.addFilter(new MonochromeRed(), "Monochrome Red");
@@ -48,5 +47,6 @@ public class SnapShopConfiguration {
 		theShop.addFilter(new Median5x5Filter(), "Median 5x5 Filter");
 		theShop.addFilter(new Median7x7Filter(), "Median 7x7 Filter");
 		theShop.addFilter(new AwesomeFilter(), "Awesome (but slow) Filter");
+		theShop.addFilter(new SpeedTestFilter(), "SpeedTest");
 	}
 }
