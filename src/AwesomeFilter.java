@@ -1,7 +1,7 @@
 /**
  * @author Anthony Asp, Emily Lott
  * 
- * A filter that combine others filters in a multistep process to produce some very interesting results, but it is slow...
+ * A filter that combine others filters in a multi-step process to produce some very interesting results, but it is slow...
  */
 
 public class AwesomeFilter implements Filter {
