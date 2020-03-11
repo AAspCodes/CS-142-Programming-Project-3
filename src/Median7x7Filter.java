@@ -9,6 +9,6 @@ public class Median7x7Filter implements Filter {
 	int filterWidth = 7;
 	
 	public void filter(PixelImage theImage) {
-		theImage.computeMedianFilter(borderWidth, filterWidth);
+		theImage.computeFilter(borderWidth, filterWidth);
 	}
 }

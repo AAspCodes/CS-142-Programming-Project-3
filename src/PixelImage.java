@@ -117,8 +117,9 @@ public class PixelImage {
 		}
 		this.setData(newData);
 	}
-
-	public void computeMedianFilter(int offset, int filterWidth) {
+	
+	// median compute
+	public void computeFilter(int offset, int filterWidth) {
 		Pixel[][] data = this.getData();
 		Pixel[][] newData = copyImageData(data, offset);
 
